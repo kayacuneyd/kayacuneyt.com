@@ -25,7 +25,7 @@ $currentYear = date('Y');
                 <span class="text-white mx-1">&middot;</span>
                 <a class="color-ck small text-decoration-none" href="/imprints">Imprints</a>
                 <span class="text-white mx-1">&middot;</span>
-                <a class="color-ck small text-decoration-none" target="_blank" href="https://github.com/kayacuneyd/projectC">My Source Code</a>
+                <a class="color-ck small text-decoration-none" target="_blank" href="https://github.com/kayacuneyd/kayacuneyt.com">My Source Code</a>
             </div>
         </div>
     </div>
