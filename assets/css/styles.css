@@ -1,0 +1,44 @@
+.bg-ck{
+    background-color: #243b4d !important;
+}
+
+.bg-ck-hover{
+    background-color: #243b4dd3 !important;
+}
+
+.bg-ck-light{
+    background-color: #d0decb !important;
+}
+
+.bg-ck-light-hover{
+    background-color: #d0decbda !important;
+}
+
+.large-font{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.xlarge-font{
+    font-size: x-large;
+    font-weight: 500;
+}
+
+.color-ck{
+    color: #d0decb !important;
+}
+
+.color-ck-dark{
+    color: #243b4d !important;
+}
+
+.border-bottom-ck{
+    border-bottom: 1px solid #d0decb59 !important;
+}
+
+.text-ck-special {
+    text-decoration: none;
+    font-weight: bolder;
+    color: #243b4d;
+    transition: transform 0.2s ease; /* Geçiş efekti eklemek için */
+}

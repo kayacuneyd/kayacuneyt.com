@@ -1,0 +1,49 @@
+{
+    "projects": [
+        {
+            "name": "CKaya Secret Diary",
+            "slug": "ckaya-secret-diary",
+            "projectImage": "assets/images/laci-arkaplan.jpg",
+            "description": "Simple web-based diary & note-taking application buily by using PHP & HTML,JS, CSS",
+            "link": "https://secret.kayacuneyt.com",
+            "categories": ["Security", "API", "Encryption"],
+            "technologies": ["PHP", "JavaScript", "MySQL", "Bootstrap"]
+        },
+        {
+            "name": "CKaya Postcode Finder",
+            "slug": "ckaya-postcode-finder",
+            "postImage": "assets/images/laci-arkaplan.jpg",
+            "description": "A postcode finder application that helps users search for postal codes based on location.",
+            "link": "https://address.kayacuneyt.com",
+            "categories": ["Utility", "Location Services", "Postcode Search"],
+            "technologies": ["PHP", "JavaScript", "MySQL", "Bootstrap"]
+        },
+        {
+            "name": "CKaya Custom WP Themes",
+            "slug": "custom-wp-theme",
+            "projectImage": "https://dev.kayacuneyt.com/wp-content/uploads/2022/09/placeholder.png",
+            "description": "A custom WordPress theme developed by using Bootstrap 5.",
+            "link": "https://dev.kayacuneyt.com",
+            "categories": ["Development", "WP Theme"],
+            "technologies": ["JavaScript", "HTML", "CSS", "WordPress"]
+        },
+        {
+            "name": "CKaya Calories Tracker",
+            "slug": "ckaya-calories-tracker",
+            "projectImage": "https://calories.kayacuneyt.com/logo.png",
+            "description": "Track your daily calorie intake with this app. Log meals and get detailed nutritional information.",
+            "link": "https://calories.kayacuneyt.com",
+            "categories": ["Health", "Fitness", "Nutrition"],
+            "technologies": ["PHP", "JavaScript", "MySQL", "Bootstrap"]
+        },
+        {
+            "name": "CKaya Sentiment Analysis WP Plugin",
+            "slug": "ckaya-sentiment-analysis-wp-plugin",
+            "projectImage": "https://sentiment.kayacuneyt.com/logo.png",
+            "description": "Analyze the sentiment of text data (positive, negative, or neutral) using the WordPress plugin with machine learning algorithms.",
+            "link": "https://sentiment.kayacuneyt.com",
+            "categories": ["Machine Learning", "NLP", "Data Analysis"],
+            "technologies": ["Python", "JavaScript", "Machine Learning", "Flask"]
+        }
+    ]
+}

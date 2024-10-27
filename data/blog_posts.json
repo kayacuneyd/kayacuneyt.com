@@ -1,0 +1,71 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "slug": "the-importance-of-responsive-web-design",
+            "postImage": "/assets/images/blog-images/responsive-design.jpg",
+            "title": "The Importance of Responsive Web Design in 2024",
+            "author": "Cüneyt Kaya",
+            "date": "2024-10-01",
+            "categories": [
+                "Web Design",
+                "Responsive Design"
+            ],
+            "contentFile": "/data/blog/the-importance-of-responsive-web-design.md"
+        },
+        {
+            "id": 2,
+            "slug": "optimizing-web-performance",
+            "postImage": "/assets/images/blog-images/web-performance.jpg",
+            "title": "Optimizing Web Performance: Best Practices for Fast-Loading Websites",
+            "author": "Cüneyt Kaya",
+            "date": "2024-10-01",
+            "categories": [
+                "SEO",
+                "Performance"
+            ],
+            "contentFile": "/data/blog/optimizing-web-performance.md"
+        },
+        {
+            "id": 3,
+            "slug": "designing-user-centric-websites",
+            "postImage": "/assets/images/blog-images/user-centric-design.jpg",
+            "title": "Designing User-Centric Websites: Best Practices for Web Designers",
+            "author": "Cüneyt Kaya",
+            "date": "2024-10-01",
+            "categories": [
+                "Web Design",
+                "Responsive Design"
+            ],
+            "contentFile": "/data/blog/designing-user-centric-websites.md"
+        },
+        {
+            "id": 4,
+            "slug": "javascript-frameworks-guide",
+            "postImage": "/assets/images/blog-images/javascript-frameworks.jpg",
+            "title": "JavaScript Frameworks: A Comprehensive Guide for Web Developers",
+            "author": "Cüneyt Kaya",
+            "date": "2024-10-01",
+            "categories": [
+                "Web Development",
+                "JS",
+                "Web Technologies"
+            ],
+            "contentFile": "/data/blog/javascript-frameworks-guide.md"
+        },
+        {
+            "id": 5,
+            "slug": "anomie-of-turkish-society-in-2024",
+            "postImage": "/assets/images/blog-images/turkey-and-anomie-2024.jpg",
+            "title": "Anomie of Turkish Society",
+            "author": "Cüneyt Kaya",
+            "date": "2024-10-14",
+            "categories": [
+                "Sociology",
+                "Society",
+                "Anomie Theory"
+            ],
+            "contentFile": "/data/blog/anomie-of-turkish-society-in-2024.md"
+        }
+    ]
+}
