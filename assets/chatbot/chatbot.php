@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Chatbot</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/assets/chatbot/style.css">
 </head>
 <body>
   <div class="chat-container">
@@ -13,6 +13,6 @@
     <button id="speak-button">🎤 Sesli Mesaj</button>
   </div>
 
-  <script src="chatbot.js"></script>
+  <script src="/assets/chatbot/chatbot.js"></script>
 </body>
 </html>
