@@ -14,11 +14,5 @@ include_once __DIR__ . '/../components/home/services.php';
 include_once __DIR__ . '/../components/video.php';
 include_once __DIR__ . '/../components/home/testimonials.php';
 include_once __DIR__ . '/../components/call_to_action.php';
-
-?>
-
-<div class="content"></div>
-
-<?php
 include_once __DIR__ . '/../components/footer.php';
 ?>
