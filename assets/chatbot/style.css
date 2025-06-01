@@ -1,18 +1,25 @@
 #chatbot-box {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #001F3F;
+  border: 1px solid #ccc;
   padding: 15px;
-  border-radius: 10px;
-  color: white;
+  max-width: 500px;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
 }
-
-button {
-  background: #FF851B;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
+.chat-log {
+  height: 200px;
+  overflow-y: auto;
+  background: #f9f9f9;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.chat-message {
+  margin: 5px 0;
+}
+.chat-input-area {
+  display: flex;
+  gap: 10px;
+}
+#user-input {
+  flex: 1;
+  padding: 8px;
 }
