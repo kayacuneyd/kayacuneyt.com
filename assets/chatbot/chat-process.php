@@ -96,9 +96,13 @@ try {
     http_response_code(500);
     echo json_encode(["error" => $e->getMessage()]);
     if (!isset($reply)) {
-    echo json_encode([
-        'error' => 'Beklenmeyen bir hata oluştu.'
-    ]);
-    exit;
+        // Eğer başka bir şey dönmediyse en azından boş JSON ver
+        if (!headers_sent()) {
+            header('Content-Type: application/json');
+        }
+        echo json_encode([
+            'error' => 'Beklenmeyen bir hata oluştu.'
+        ]);
+        exit;
     }
 }
