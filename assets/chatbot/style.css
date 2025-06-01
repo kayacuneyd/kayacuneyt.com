@@ -23,3 +23,34 @@
   flex: 1;
   padding: 8px;
 }
+
+.chat-container {
+  max-width: 600px;
+  margin: 50px auto;
+  font-family: Arial;
+}
+
+#chat-log {
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 300px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+
+.user {
+  text-align: right;
+  color: blue;
+  margin: 5px;
+}
+
+.bot {
+  text-align: left;
+  color: green;
+  margin: 5px;
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px 2px;
+}

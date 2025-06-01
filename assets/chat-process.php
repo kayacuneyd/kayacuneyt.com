@@ -1,13 +1,11 @@
 <?php
 header('Content-Type: application/json');
 
-// Autoload & .env yükle
 require_once __DIR__ . '/../vendor/autoload.php';
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->safeLoad();
 
-// API anahtarlarını al
 $openai_api_key = $_ENV['OPENAI_API_KEY'] ?? '';
 $elevenlabs_api_key = $_ENV['ELEVENLABS_API_KEY'] ?? '';
 
@@ -16,7 +14,6 @@ if (empty($openai_api_key) || empty($elevenlabs_api_key)) {
     exit;
 }
 
-// Kullanıcı mesajı al
 $data = json_decode(file_get_contents('php://input'), true);
 $userMessage = trim($data['message'] ?? '');
 
@@ -25,7 +22,6 @@ if ($userMessage === '') {
     exit;
 }
 
-// OpenAI → Yanıt al
 $openai_url = "https://api.openai.com/v1/chat/completions";
 $openai_payload = [
     "model" => "gpt-4",
@@ -51,8 +47,7 @@ $openai_response = file_get_contents($openai_url, false, $openai_context);
 $gptData = json_decode($openai_response, true);
 $reply = $gptData['choices'][0]['message']['content'] ?? 'Üzgünüm, şu anda yanıt veremiyorum.';
 
-// ElevenLabs → Ses oluştur
-$voice_id = 'EXAVITQu4vr4xnSDxMaL'; // Default voice
+$voice_id = 'EXAVITQu4vr4xnSDxMaL';
 $tts_url = "https://api.elevenlabs.io/v1/text-to-speech/$voice_id";
 $tts_payload = [
     "text" => $reply,
@@ -80,12 +75,10 @@ if (!$audio) {
     exit;
 }
 
-// MP3 olarak kaydet
 $filename = 'reply_' . time() . '.mp3';
 $audioPath = __DIR__ . "/../assets/chatbot/$filename";
 file_put_contents($audioPath, $audio);
 
-// Yanıt gönder
 echo json_encode([
     "reply" => $reply,
     "audioUrl" => "/assets/chatbot/$filename"

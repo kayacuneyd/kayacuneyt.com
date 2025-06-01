@@ -1,11 +1,18 @@
-<link rel="stylesheet" href="/assets/chatbot/style.css">
-<script src="/assets/chatbot/chatbot.js" defer></script>
-
-<div id="chatbot-box">
-  <div class="chat-log" id="chat-log"></div>
-
-  <div class="chat-input-area">
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="chat-container">
+    <div id="chat-log"></div>
     <input type="text" id="user-input" placeholder="Mesajınızı yazın..." />
-    <button onclick="sendMessage()">Gönder</button>
+    <button id="send-button">Gönder</button>
+    <button id="speak-button">🎤 Sesli Mesaj</button>
   </div>
-</div>
+
+  <script src="chatbot.js"></script>
+</body>
+</html>
