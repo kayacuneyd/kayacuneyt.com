@@ -13,6 +13,6 @@
     <button id="speak-button">🎤 Sesli Mesaj</button>
   </div>
 
-  <script src="./chatbot.js"></script>
+  <script src="./chatbot.js?v=2"></script>
 </body>
 </html>
