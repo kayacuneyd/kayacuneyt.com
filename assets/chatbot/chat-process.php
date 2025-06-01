@@ -95,5 +95,10 @@ try {
 } catch (Exception $e) {
     http_response_code(500);
     echo json_encode(["error" => $e->getMessage()]);
+    if (!isset($reply)) {
+    echo json_encode([
+        'error' => 'Beklenmeyen bir hata oluştu.'
+    ]);
     exit;
+    }
 }
