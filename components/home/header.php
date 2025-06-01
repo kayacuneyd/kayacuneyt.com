@@ -14,7 +14,7 @@
                     <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
                         <a class="btn bg-ck-light color-ck-dark fw-bold btn-lg px-4 me-sm-3"
                             href="mailto:info@kayacuneyt.com">
-                            Start Your Projects Today!!! testtt
+                            Start Your Projects Today!!! tested
                         </a>
 
                     </div>
