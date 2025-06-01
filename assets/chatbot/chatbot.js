@@ -1,10 +1,24 @@
-// 📁 chatbot.js
+document.addEventListener('DOMContentLoaded', () => {
+  console.log("Chatbot hazır.");
 
-document.getElementById('send-button').addEventListener('click', sendMessage);
-document.getElementById('user-input').addEventListener('keydown', function (e) {
-  if (e.key === 'Enter') sendMessage();
+  const sendBtn = document.getElementById('send-button');
+  const inputBox = document.getElementById('user-input');
+  const speakBtn = document.getElementById('speak-button');
+
+  if (sendBtn && inputBox) {
+    sendBtn.addEventListener('click', sendMessage);
+    inputBox.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') sendMessage();
+    });
+  }
+
+  if (speakBtn) {
+    speakBtn.addEventListener('click', startVoiceRecognition);
+  }
+
+  // Sayfa yüklendiğinde karşılama mesajı
+  playVoice();
 });
-document.getElementById('speak-button').addEventListener('click', startVoiceRecognition);
 
 function appendMessage(role, message) {
   const chatLog = document.getElementById('chat-log');
@@ -42,7 +56,7 @@ function playAudio(audioUrl) {
 }
 
 function startVoiceRecognition() {
-  console.log("Sesli mesaj başlatılıyor...");
+  console.log("🎤 Sesli mesaj başlatılıyor...");
   if (!('webkitSpeechRecognition' in window)) {
     alert('Tarayıcınız bu özelliği desteklemiyor.');
     return;
@@ -60,14 +74,13 @@ function startVoiceRecognition() {
   };
 
   recognition.onerror = function (event) {
-    console.error('Voice recognition error:', event.error);
+    console.error('🎤 Voice recognition error:', event.error);
   };
 
   recognition.start();
 }
 
 function playVoice() {
-  // İlk karşılama mesajı için
   fetch('/assets/chatbot/chat-process.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -80,5 +93,3 @@ function playVoice() {
     })
     .catch(err => console.error('playVoice() hatası:', err));
 }
-
-window.addEventListener('DOMContentLoaded', playVoice);
