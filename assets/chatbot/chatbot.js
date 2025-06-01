@@ -42,6 +42,7 @@ function playAudio(audioUrl) {
 }
 
 function startVoiceRecognition() {
+  console.log("Sesli mesaj başlatılıyor...");
   if (!('webkitSpeechRecognition' in window)) {
     alert('Tarayıcınız bu özelliği desteklemiyor.');
     return;
