@@ -1,4 +1,4 @@
-<!-- assets/chatbot/chatbot.php -->
+<!-- chatbot.php -->
 <link rel="stylesheet" href="/assets/chatbot/style.css">
 <script src="/assets/chatbot/chatbot.js" defer></script>
 
