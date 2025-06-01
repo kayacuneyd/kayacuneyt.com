@@ -1,8 +1,9 @@
+// 📁 chatbot.js
+
 document.getElementById('send-button').addEventListener('click', sendMessage);
 document.getElementById('user-input').addEventListener('keydown', function (e) {
   if (e.key === 'Enter') sendMessage();
 });
-
 document.getElementById('speak-button').addEventListener('click', startVoiceRecognition);
 
 function appendMessage(role, message) {
@@ -22,7 +23,7 @@ function sendMessage() {
   appendMessage('user', message);
   input.value = '';
 
-  fetch('chat-process.php', {
+  fetch('/assets/chatbot/chat-process.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ message })
@@ -40,7 +41,6 @@ function playAudio(audioUrl) {
   audio.play();
 }
 
-// Web Speech API - Mikrofonla Konuşma
 function startVoiceRecognition() {
   if (!('webkitSpeechRecognition' in window)) {
     alert('Tarayıcınız bu özelliği desteklemiyor.');
@@ -48,7 +48,7 @@ function startVoiceRecognition() {
   }
 
   const recognition = new webkitSpeechRecognition();
-  recognition.lang = 'tr-TR'; // istersen 'en-US' veya 'de-DE'
+  recognition.lang = 'tr-TR';
   recognition.interimResults = false;
   recognition.maxAlternatives = 1;
 
@@ -64,3 +64,20 @@ function startVoiceRecognition() {
 
   recognition.start();
 }
+
+function playVoice() {
+  // İlk karşılama mesajı için
+  fetch('/assets/chatbot/chat-process.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ message: 'Hoş geldiniz! Ben Cüneyt Kaya. Size nasıl yardımcı olabilirim?' })
+  })
+    .then(res => res.json())
+    .then(data => {
+      if (data.reply) appendMessage('bot', data.reply);
+      if (data.audioUrl) playAudio(data.audioUrl);
+    })
+    .catch(err => console.error('playVoice() hatası:', err));
+}
+
+window.addEventListener('DOMContentLoaded', playVoice);
