@@ -42,12 +42,31 @@ function sendMessage() {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ message })
   })
-    .then(res => res.json())
-    .then(data => {
-      if (data.reply) appendMessage('bot', data.reply);
-      if (data.audioUrl) playAudio(data.audioUrl);
+    .then(res => {
+      if (!res.ok) {
+        // Log the response text if it's not OK
+        return res.text().then(text => {
+          throw new Error(`HTTP error! Status: ${res.status}, Response: ${text}`);
+        });
+      }
+      return res.text(); // Get response as text first
     })
-    .catch(err => console.error('Hata:', err));
+    .then(text => {
+      try {
+        const data = JSON.parse(text); // Try to parse as JSON
+        if (data.reply) appendMessage('bot', data.reply);
+        if (data.audioUrl) playAudio(data.audioUrl);
+      } catch (err) {
+        // Log the text that failed to parse and the error
+        console.error('JSON parse hatası (sendMessage):', err, 'Alınan metin:', text);
+        appendMessage('bot', 'Bir hata oluştu. Sunucudan gelen yanıt işlenemedi.'); // User-friendly message
+      }
+    })
+    .catch(err => {
+      console.error('Hata (sendMessage):', err);
+      // Display a generic error message to the user for network or other unexpected errors
+      appendMessage('bot', 'Mesaj gönderilirken bir sorun oluştu. Lütfen tekrar deneyin.');
+    });
 }
 
 function playAudio(audioUrl) {

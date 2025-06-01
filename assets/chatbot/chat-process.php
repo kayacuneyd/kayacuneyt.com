@@ -2,7 +2,9 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+// Moved header to the top
 header('Content-Type: application/json');
+ob_start(); // Start output buffering
 
 try {
     require_once __DIR__ . '/../vendor/autoload.php';
@@ -80,29 +82,28 @@ try {
     $tts_ctx = stream_context_create($tts_opts);
     $audio = file_get_contents("https://api.elevenlabs.io/v1/text-to-speech/$voice_id", false, $tts_ctx);
 
-    if (!$audio) {
-        throw new Exception("Ses oluşturulamadı.");
+    if ($audio === false) { // Check if audio content was fetched
+        throw new Exception("Ses içeriği ElevenLabs'ten alınamadı.");
     }
 
     $filename = 'reply_' . time() . '.mp3';
     $filePath = __DIR__ . "/../assets/chatbot/$filename";
-    file_put_contents($filePath, $audio);
+    $bytesWritten = file_put_contents($filePath, $audio);
+    if ($bytesWritten === false) {
+        throw new Exception("Oluşturulan ses dosyası sunucuya yazılamadı. İzinleri kontrol edin.");
+    }
 
+    ob_end_clean(); // Clean (erase) the output buffer and turn off output buffering
+    header('Content-Type: application/json'); // Re-set header for successful response
     echo json_encode([
         "reply" => $reply,
         "audioUrl" => "/assets/chatbot/$filename"
     ]);
 } catch (Exception $e) {
-    http_response_code(500);
-    echo json_encode(["error" => $e->getMessage()]);
-    if (!isset($reply)) {
-        // Eğer başka bir şey dönmediyse en azından boş JSON ver
-        if (!headers_sent()) {
-            header('Content-Type: application/json');
-        }
-        echo json_encode([
-            'error' => 'Beklenmeyen bir hata oluştu.'
-        ]);
-        exit;
+    ob_end_clean(); // Clean (erase) the output buffer and turn off output buffering
+    if (!headers_sent()) {
+        header('Content-Type: application/json'); // Ensure JSON header is set for error response
     }
+    http_response_code(500); // Set HTTP status code for error
+    echo json_encode(["error" => $e->getMessage()]);
 }
